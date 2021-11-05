@@ -48,7 +48,8 @@ Geographic variables are comprised of the following data,
 
 
 The following table from the previous guideline[^1] illustrates the data source and format for the data above.
-![[Screen Shot 2021-11-04 at 21.48.13.png]]
+
+![Table](./attachments/Screen Shot 2021-11-04 at 21.48.13.png)
 
 ## Data Accumulation
 
@@ -82,7 +83,10 @@ The following table from the previous guideline[^1] illustrates the data source 
 *[UPDATE]*
 
 If you have requested years of data in bulk and the requested data contains spatial information regarding the Metroplotian area, download scripting is required since the batch download tool does not work. 
-![[Screen Shot 2021-11-06 at 5.43.32.png]]
+
+![KTDB](Screen Shot 2021-11-06 at 5.43.32.png)
+
+
 
 
 
