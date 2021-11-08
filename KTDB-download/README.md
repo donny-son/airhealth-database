@@ -7,7 +7,7 @@ The card currently contains the following content.
 >why: 일괄 다운로드 안됨
 >how: https://www.ktdb.go.kr/ > login > 마이페이지 > 자료신청내역 > 데이터다운로드(버튼) > 데이터다운로드(버튼)
 >
->input: uname, key(`./credentials/credentials.yaml`)
+>input: uname, key(`./credentials/credentials.yml`)
 >
 >logic: open browser, login, move to download page, async download under `./KTDB-download/downloads/`.
 >
