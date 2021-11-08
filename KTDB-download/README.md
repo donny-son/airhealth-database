@@ -1,0 +1,1 @@
+To download multiple files from KTDB one needs to login > synchronously click download and wait. Although there exists a batch download button, it does not work on data that contains information concerning the Metropolitan area(which is interesting). To overcome this difficulty,  simple scripts are required.
