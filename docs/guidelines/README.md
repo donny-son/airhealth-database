@@ -46,9 +46,8 @@ Geographic variables are comprised of the following data,
     - Absolute elevation
     - Proportion of concentric elevation points above or below 20/50m. 
 
-
 The following table from the previous guideline[^1] illustrates the data source and format for the data above.
-![Table](./attachments/Screen%20Shot%202021-11-04%20at%2021.48.13.png)
+![Table](./README.assets/Screen%20Shot%202021-11-04%20at%2021.48.13.png)
 
 ## Data Accumulation
 
@@ -83,7 +82,7 @@ The following table from the previous guideline[^1] illustrates the data source 
 
 If you have requested years of data in bulk and the requested data contains spatial information regarding the Metroplotian area, download scripting is required since the batch download tool does not work. 
 
-![KTDB Data Download Page after validation](./attachments/Screen%20Shot%202021-11-06%20at%205.43.32.png)
+![KTDB Data Download Page after validation](./README.assets/Screen%20Shot%202021-11-06%20at%205.43.32.png)
 
 
 
@@ -96,7 +95,39 @@ If you have requested years of data in bulk and the requested data contains spat
 http://stat.molit.go.kr/portal/cate/statFileView.do?hRsId=58&hFormId=5498&hSelectId=5498&hPoint=00&hAppr=1&hDivEng=&oFileName=&rFileName=&midpath=&month_yn=N&sFormId=5498&sStart=202109&sEnd=202109&sStyleNum=2&EXPORT=
 3. Unlike the previous guideline, downloading the `canvas` is unavailable. 
 
+Therefore, a newer approach is required via the [Molit OpenAPI Service](https://stat.molit.go.kr/portal/api/main.do).
+
+0. Create `molit` openapi account. https://stat.molit.go.kr/portal/auth/memberJoin1.do
+
+1. Request service key. https://stat.molit.go.kr/portal/api/auth/apply.do
+   Note that the service key is immediately generated upon registration.
+
+   1. 사용목적 및 활용용도: 미세먼지 대기오염 예측 모델 구축 연구 활용
+   2. 서비스 URL: https://www.ncc-gcsp.ac.kr:8443/n_academics/kimsunyoung.jsp
+   3. 설명: 미세먼지 대기오염 예측 모델 구축을 위해서는 교통망, 지역별 차량등록대수, 항만 위치 데이터 등 다양한 요인들과 코호트 환자의 거리를 측정한 지리변수들이 필요하기 때문에 이에 따라 신청함.
+
+2. Request OpenAPI access. https://stat.molit.go.kr/portal/api/open/list.do
+
+3. `사용가능한 오픈API > 교통/물류 > 자동차등록현황보고 > 자동차등록대수현황_시도별 (1990 - 2021)`
+
+   1. ![Screen Shot 2021-11-12 at 6.30.51](README.assets/Screen Shot 2021-11-12 at 6.30.51.png)
+   2. 오픈API 사용목적: 미세먼지 대기오염 예측 모델 구축을 위해서는 지역별 자동차등록대수 현황과 코호트 환자의 거리를 측정한 지리변수들이 필요하기 때문에 이에 따라 신청함.
+      - `중복된 목록...` 이슈가 발생할 수 있음. 그러나 이는 사실 불필요한 과정임. API endpoint URL에 사전에 본인이 발급받은 인증키를 사용하면 내려받기가 가능함
+
+4. Test with `wget` or `Postman`.
+
+   ```sh
+   wget  http://stat.molit.go.kr/portal/openapi/service/rest/getList.do?key=인증키&form_id=5559&style_num=1&start_dt=201303&end_dt=201303
+   ```
+
 ### Census
+
+1. login to https://sgis.kostat.go.kr/
+2. 집계구별 인구, 가구, 주택, 사업체 Data를 신청하여 txt 형식의 data를 취득
+
+*Census* 자료 획득을 위한 다음의 양식이 필요함.
+
+![Screen Shot 2021-11-12 at 8.53.53](README.assets/Screen Shot 2021-11-12 at 8.53.53.png)
 
 ### Landuse
 
@@ -111,6 +142,20 @@ http://stat.molit.go.kr/portal/cate/statFileView.do?hRsId=58&hFormId=5498&hSelec
 ### Emission
 
 ### Altitude
+
+
+
+---
+
+## New Ideas?
+
+- Source
+  - KOSIS
+  - MDIS
+  - 국가지표체계
+  - SGIS plus
+- 지리변수를 활용한 다양한 연구 예시 제시하기
+  - https://chs.kdca.go.kr/chs/recsRoom/dataBaseMain.do
 
 
 
