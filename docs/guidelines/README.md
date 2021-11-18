@@ -1,6 +1,6 @@
 ---
 title: Data Aggregation Guideline for Air Pollutant Prediction Models
-author: Dongook Son, Woohyeon Lee
+author: Dongook Son, Woohyun Lee
 date: 2021-11-04
 ---
 
