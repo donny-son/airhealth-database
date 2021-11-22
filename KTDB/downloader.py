@@ -120,6 +120,6 @@ class KTDBDownloader:
                 if f.is_file() or f.is_symlink():
                     f.unlink()
                 elif f.is_dir():
-                    shutil.rmtree(file_path)
+                    shutil.rmtree(f)
             except Exception as e:
-                print(f'Failed to delete {file_path}. Reason: {e}')
+                print(f'Failed to delete {f.name}. Reason: {e}')
