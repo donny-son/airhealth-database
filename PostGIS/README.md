@@ -14,7 +14,7 @@ docker run --name ncc-postgis \
   -e POSTGRES_PASSWORD="password" \
   -e PGDATA=/var/lib/postgresql/data/pgdata \
   -v <localDir>:/var/lib/postgresql/data \
-  -P -p 127.0.0.1:5432:5432 \
+  -P -p 127.0.0.1:5555:5432 \
   -d postgis/postgis
 ```
 
@@ -23,7 +23,7 @@ docker run --name ncc-postgis \
 From mac terminal,
 
 ```bash
-pgcli postgresql://postgres:POSTGRES_PASSWORD@localhost:5432/postgres
+pgcli postgresql://postgres:POSTGRES_PASSWORD@localhost:5555/postgres
 ```
 
 Then create spatial database with the following commands:

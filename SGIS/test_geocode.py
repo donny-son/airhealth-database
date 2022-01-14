@@ -5,8 +5,8 @@ from sqlalchemy import create_engine
 
 from api import SGISRequest
 
-DO_REQUEST = False
-AP = "postgresql://postgres:password@localhost:5555/mydatabase"
+DO_REQUEST = True
+AP = "postgresql://postgres:1234@localhost:5432/nccdb"
 CSV = '/Users/dongookson/Code/data-project/SGIS/key_locations/ad8.csv'
 QUERY = 'select * from key_locations'
 
