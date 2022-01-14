@@ -77,7 +77,7 @@ class SGISRequest:
         response = requests.get(self.URLS["HADMAREA"], params=params)
         return response.json()
 
-    def geocode_addr(self, address: str, xy_only: bool) -> dict:
+    def geocode_addr(self, address: str, xy_only=True) -> dict:
         """geocode string address to utmk coord
 
         Args:
@@ -90,10 +90,13 @@ class SGISRequest:
         response = requests.get(self.URLS["GEOCODING"], params=params)
         if xy_only:
             _result = response.json().get('result')
-            if int(_result.get("totalcount")) > 1:
-                raise Warning("Multiple (x,y) returned. Check which (x,y) is correct. Defaults to using the first pair.")
-            _first = _result.get("resultdata")[0]
-            return {'x':_first.get('x'), 'y':_first.get('y')}
+            if _result is not None:
+                if int(_result.get("totalcount")) > 1:
+                    raise Warning("Multiple (x,y) returned. Check which (x,y) is correct. Defaults to using the first pair.")
+                _first = _result.get("resultdata")[0]
+                return {'x':_first.get('x'), 'y':_first.get('y')}
+            else:
+                return {'x':None, 'y':None}
         return response.json()
 
 
