@@ -22,8 +22,8 @@ def insert_SidoCode(requester, engine):
         engine: sqlalchemy.engine.base.Engine
     '''
     TBL_NAME = 'SIDO_CODE'
+    sido_code_df = requester.get_sido_adm_cd(to_tabular=True)
     try:
-        sido_code_df = requester.get_sido_adm_cd(to_tabular=True)
         sido_code_df.to_sql(TBL_NAME, engine, index_label='id', if_exists='append')
     except Exception as e:
         if e.orig.pgcode == '23505':
