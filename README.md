@@ -36,3 +36,4 @@
 
 - https://clue.io/developer-resources#overviewsection
 
+Please request Synology Drive access information to dongook.son@yonsei.ac.kr to view original `.pdf` or large files.
