@@ -10,7 +10,7 @@ Base = declarative_base()
 engine = create_engine(AP)
 
 class SidoCode(Base):
-    __tablename__ = 'SIDO_CODE'
+    __tablename__ = 'SIDO_CODES'
 
     id = Column(Integer, primary_key=True)
     cd = Column(Text)
@@ -25,10 +25,10 @@ class SidoCode(Base):
 
 class SidoBorder(Base):
 
-    __tablename__ = f'SIDO_BORDER'
+    __tablename__ = f'SIDO_BORDERS'
 
     id = Column(Integer, primary_key=True)
-    sido_cd_id = Column(Integer, ForeignKey('SIDO_CODE.id'))
+    sido_cd_id = Column(Integer, ForeignKey('SIDO_CODES.id'))
     adm_cd = Column(Text)
     adm_nm = Column(Text)
     geometry = Column(Geometry(srid=5179))

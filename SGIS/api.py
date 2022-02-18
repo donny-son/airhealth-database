@@ -136,8 +136,8 @@ class SGISRequest:
 
 if __name__ == "__main__":
     sgis = SGISRequest()
-    print(f"{SGISRequest().get_sido_adm_cd(to_tabular=True)=}")
+    # print(f"{SGISRequest().get_sido_adm_cd(to_tabular=True)=}")
     # print(f"{SGISRequest().get_sido_adm_cd(to_tabular=True)=}")
     # print(f"{SGISRequest().get_adm_cd(cd=11, include_border=1, to_tabular=True)}")
-    # print(f"{SGISRequest().get_adm_border()=}")
-    print(sgis.get_hangjungdong_all())
+    print(f"{SGISRequest().get_adm_border()=}")
+    # print(sgis.get_hangjungdong_all())
