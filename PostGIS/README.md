@@ -12,8 +12,9 @@ This documentation handles database-related modeling decisions and configuration
 ```bash
 docker run --name ncc-postgis \
   -e POSTGRES_PASSWORD="password" \
+  -e POSTGRES_DB="nccdb" \
   -e PGDATA=/var/lib/postgresql/data/pgdata \
-  -v <localDir>:/var/lib/postgresql/data \
+  -v <localdir>:/var/lib/postgresql/data \
   -P -p 127.0.0.1:5555:5432 \
   -d postgis/postgis
 ```

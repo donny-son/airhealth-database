@@ -4,7 +4,7 @@ from sqlalchemy import Integer, Text, Column, ForeignKey
 from geoalchemy2 import Geometry
 import pandas as pd
 
-AP = "postgresql://postgres:1234@localhost:5432/nccdb"
+AP = "postgresql://postgres:1234@localhost:5555/nccdb"
 
 Base = declarative_base()
 engine = create_engine(AP)
@@ -14,12 +14,19 @@ class AirKoreaMonitoringSites(Base):
     __tablename__ = f'AIR_KOREA_MONITORING_SITES'
 
     id = Column(Integer, primary_key=True)
-    site_id = Column(Integer, nullable=False)
+    site_id_no = Column(Integer, nullable=False)
     year = Column(Integer, nullable=False)
+    station_cd = Column(Text)
+    address = Column(Text)
+    adm_cd = Column(Text)
+    adm_nm = Column(Text)
+    hadm_cd = Column(Text)
+    hadm_nm = Column(Text)
+    badm_cd = Column(Text)
+    badm_nm = Column(Text)
+    year = Column(Integer)
     geometry = Column(Geometry(srid=5179))
-    wkt_point_5179 = Column(Text)
     wkt_4326 = Column(Text)
-    addr_name = Column(Text)
 
     def __repr__(self):
         return f"AirKoreaMonitoringSites(site_id={self.site_id}, addr_name={self.addr_name}, year={self.year})"
