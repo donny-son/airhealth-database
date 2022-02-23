@@ -1,3 +1,3 @@
 layers = iface.mapCanvas().layers()
 for layer in layers:
-    layer.setSubsetString('"year" = \'2001\'')
+    layer.setSubsetString('"year" = \'2020\'')

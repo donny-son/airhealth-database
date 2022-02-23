@@ -16,3 +16,4 @@ __pycache__/
 
 PostGIS/pgdata
 PostGIS/data
+**.ipynb_checkpoints

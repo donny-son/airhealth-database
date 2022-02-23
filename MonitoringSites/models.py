@@ -29,7 +29,7 @@ class AirKoreaMonitoringSites(Base):
     wkt_4326 = Column(Text)
 
     def __repr__(self):
-        return f"AirKoreaMonitoringSites(site_id={self.site_id}, addr_name={self.addr_name}, year={self.year})"
+        return f"AirKoreaMonitoringSites(site_id_no={self.site_id_no}, address={self.address}, year={self.year})"
 
 
 if __name__=="__main__":
