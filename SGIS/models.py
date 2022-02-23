@@ -17,10 +17,11 @@ class SidoCode(Base):
     addr_name = Column(Text)
 
     lower_adm_cd = relationship("SidoBorder", back_populates='higher_adm_cd')
+    lower_adm_cd_emd = relationship("EmdBorder", back_populates='higher_adm_cd_emd')
+    lower_adm_cd_sgg = relationship("SggBorder", back_populates='higher_adm_cd_sgg')
 
     def __repr__(self):
         return f"Sido(id={self.id}, cd={self.cd}, addr_name={self.addr_name})"
-
 
 
 class SidoBorder(Base):
@@ -40,6 +41,44 @@ class SidoBorder(Base):
 
     def __repr__(self):
         return f"SidoBorder(id={self.id}, adm_cd={self.adm_cd}, adm_name={self.adm_name}, year={self.year})"
+
+
+class EmdBorder(Base):
+
+    __tablename__ = f'EMD_BORDERS'
+
+    id = Column(Integer, primary_key=True)
+    sido_cd_id = Column(Integer, ForeignKey('SIDO_CODES.id'))
+    adm_cd = Column(Text)
+    adm_nm = Column(Text)
+    geometry = Column(Geometry(srid=5179))
+    wkt_point_5179 = Column(Text)
+    wkt_4326 = Column(Text)
+    year = Column(Integer, nullable=False)
+
+    higher_adm_cd_emd = relationship("SidoCode", back_populates="lower_adm_cd_emd")
+
+    def __repr__(self):
+        return f"EmdBorder(id={self.id}, adm_cd={self.adm_cd}, adm_name={self.adm_name}, year={self.year})"
+
+
+class SggBorder(Base):
+
+    __tablename__ = f'SGG_BORDERS'
+
+    id = Column(Integer, primary_key=True)
+    sido_cd_id = Column(Integer, ForeignKey('SIDO_CODES.id'))
+    adm_cd = Column(Text)
+    adm_nm = Column(Text)
+    geometry = Column(Geometry(srid=5179))
+    wkt_point_5179 = Column(Text)
+    wkt_4326 = Column(Text)
+    year = Column(Integer, nullable=False)
+
+    higher_adm_cd_sgg = relationship("SidoCode", back_populates="lower_adm_cd_sgg")
+
+    def __repr__(self):
+        return f"SggBorder(id={self.id}, adm_cd={self.adm_cd}, adm_name={self.adm_name}, year={self.year})"
 
 
 if __name__=="__main__":

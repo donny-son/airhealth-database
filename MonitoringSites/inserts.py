@@ -56,8 +56,9 @@ def insert_AirKoreaMonitoringSites(csv_file='MonitoringSites/assets/long.csv'):
     gdf = gpd.GeoDataFrame(
         df.drop(columns=['wgs_x', 'wgs_y']), 
         geometry=gpd.points_from_xy(df.wgs_x, df.wgs_y),
-        crs=5179
+        crs=4326
     )
+    gdf['geometry'] = gdf.to_crs(5179)['geometry']
     gdf['wkt_4326'] = gpd.points_from_xy(df.wgs_x, df.wgs_y,crs=4326)
     try:
         gdf.to_postgis(TBL_NAME, ENGINE, if_exists='append',index_label='id')
