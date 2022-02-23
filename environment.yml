@@ -1,0 +1,31 @@
+name: geopython
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - giohttp
+  - aiosignal
+  - async-timeout
+  - attrs
+  - beautifulsoup4
+  - certifi
+  - charset
+  - frozenlist
+  - idna
+  - multidict
+  - PyYAML
+  - requests
+  - soupsieve
+  - tqdm
+  - typing-extensions
+  - urllib3
+  - yarl
+  - geopandas
+  - jupyter
+  - sqlalchemy
+  - psycopg2
+  - geoalchemy2
+  - tqdm
+  - openpyxl
+
+prefix: /Users/dongookson/miniforge3/envs/geopython
