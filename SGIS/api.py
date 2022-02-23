@@ -1,4 +1,3 @@
-from urls import URLS
 from pathlib import Path
 
 import geopandas as gpd
@@ -7,12 +6,12 @@ from yaml import safe_load
 from pandas import json_normalize
 from tqdm import tqdm
 
+# RUN AS MODULE
+from SGIS.urls import URLS
+
 
 class SGISRequest:
-    # PROD: when entry point is main.py
-    # CREDENTIAL_PATH = Path(".") / "credentials" / "credentials.yml"
 
-    # DEBUG: current file is execultable
     _SGIS = Path(__file__).parent.resolve()
     _PRJ = _SGIS.parent.resolve()
     CREDENTIAL_PATH = _PRJ / 'credentials' / 'credentials.yml'

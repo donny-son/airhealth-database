@@ -6,8 +6,9 @@ from psycopg2.errors import UniqueViolation
 from collections.abc import Iterable
 from tqdm import tqdm
 
+# RUN AS MODULE
+from credentials.database import AP
 
-AP = "postgresql://postgres:1234@localhost:5555/nccdb"
 ENGINE = create_engine(AP)
 
 def create_long_csv(xlsx_file='MonitoringSites/assets/new_MS_2001-2019.xlsx', outfile='MonitoringSites/assets/long.csv'):

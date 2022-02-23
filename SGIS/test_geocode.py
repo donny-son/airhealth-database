@@ -3,9 +3,9 @@ import geopandas as gpd
 from sqlalchemy import create_engine
 from shapely.geometry import box
 
-from api import SGISRequest
+from SGIS.api import SGISRequest
+from credentials.database import AP
 
-AP = "postgresql://postgres:1234@localhost:5432/nccdb"
 CSV = '/Users/dongookson/Code/data-project/SGIS/key_locations/ad8.csv'
 QUERY = 'select * from key_locations'
 GET = False

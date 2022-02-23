@@ -10,6 +10,7 @@ dependencies:
   - geoalchemy2
   - tqdm
   - openpyxl
+  - pip
   - pip:
     - aiohttp
     - aiosignal
@@ -22,11 +23,10 @@ dependencies:
     - idna
     - multidict
     - PyYAML
+    - pyyaml
     - requests
     - soupsieve
     - tqdm
     - typing-extensions
     - urllib3
     - yarl
-
-

@@ -6,11 +6,11 @@ from psycopg2.errors import UniqueViolation
 from collections.abc import Iterable
 from tqdm import tqdm
 
-from api import SGISRequest
-from models import SidoCode, SidoBorder, EmdBorder, SggBorder
+# RUN AS MODULE
+from SGIS.api import SGISRequest
+from SGIS.models import SidoCode, SidoBorder, EmdBorder, SggBorder
+from credentials.database import AP
 
-
-AP = "postgresql://postgres:1234@localhost:5555/nccdb"
 PARAMS = {'adm_cd': '11', 'year': 2000}
 ENGINE = create_engine(AP)
 SESSION = sessionmaker(bind=ENGINE)

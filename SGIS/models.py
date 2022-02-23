@@ -4,7 +4,9 @@ from sqlalchemy import Integer, Text, Column, ForeignKey
 from geoalchemy2 import Geometry
 import pandas as pd
 
-AP = "postgresql://postgres:1234@localhost:5555/nccdb"
+
+# RUN AS MODULE
+from credentials.database import AP
 
 Base = declarative_base()
 engine = create_engine(AP)

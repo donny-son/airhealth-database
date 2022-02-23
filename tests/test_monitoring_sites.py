@@ -12,8 +12,8 @@ from sqlalchemy.orm import sessionmaker
 
 from MonitoringSites.models import AirKoreaMonitoringSites as AKMsite
 from SGIS.models import SggBorder
+from credentials.database import AP
 
-AP = "postgresql://postgres:1234@localhost:5555/nccdb"
 ENGINE = create_engine(AP)
 Session = sessionmaker(ENGINE)
 
