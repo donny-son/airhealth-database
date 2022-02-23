@@ -3,23 +3,6 @@ channels:
   - conda-forge
 dependencies:
   - python=3.9
-  - giohttp
-  - aiosignal
-  - async-timeout
-  - attrs
-  - beautifulsoup4
-  - certifi
-  - charset
-  - frozenlist
-  - idna
-  - multidict
-  - PyYAML
-  - requests
-  - soupsieve
-  - tqdm
-  - typing-extensions
-  - urllib3
-  - yarl
   - geopandas
   - jupyter
   - sqlalchemy
@@ -27,5 +10,23 @@ dependencies:
   - geoalchemy2
   - tqdm
   - openpyxl
+  - pip:
+    - aiohttp
+    - aiosignal
+    - async-timeout
+    - attrs
+    - beautifulsoup4
+    - certifi
+    - charset
+    - frozenlist
+    - idna
+    - multidict
+    - PyYAML
+    - requests
+    - soupsieve
+    - tqdm
+    - typing-extensions
+    - urllib3
+    - yarl
 
-prefix: /Users/dongookson/miniforge3/envs/geopython
+
