@@ -42,7 +42,7 @@ class SidoBorder(Base):
     higher_adm_cd = relationship("SidoCode", back_populates="lower_adm_cd")
 
     def __repr__(self):
-        return f"SidoBorder(id={self.id}, adm_cd={self.adm_cd}, adm_name={self.adm_name}, year={self.year})"
+        return f"SidoBorder(id={self.id}, adm_cd={self.adm_cd}, adm_name={self.adm_nm}, year={self.year})"
 
 
 class EmdBorder(Base):
@@ -61,7 +61,7 @@ class EmdBorder(Base):
     higher_adm_cd_emd = relationship("SidoCode", back_populates="lower_adm_cd_emd")
 
     def __repr__(self):
-        return f"EmdBorder(id={self.id}, adm_cd={self.adm_cd}, adm_name={self.adm_name}, year={self.year})"
+        return f"EmdBorder(id={self.id}, adm_cd={self.adm_cd}, adm_name={self.adm_nm}, year={self.year})"
 
 
 class SggBorder(Base):
@@ -80,7 +80,7 @@ class SggBorder(Base):
     higher_adm_cd_sgg = relationship("SidoCode", back_populates="lower_adm_cd_sgg")
 
     def __repr__(self):
-        return f"SggBorder(id={self.id}, adm_cd={self.adm_cd}, adm_name={self.adm_name}, year={self.year})"
+        return f"SggBorder(id={self.id}, adm_cd={self.adm_cd}, adm_name={self.adm_nm}, year={self.year})"
 
 
 if __name__=="__main__":
