@@ -4,7 +4,11 @@ import geopandas as gpd
 from greppo import app
 
 import sys
-sys.path.append('/Users/dongookson/Code/airhealth-database')
+from platform import system
+if system() == 'Darwin':
+    sys.path.append('/Users/dongookson/Code/airhealth-database')
+if system() == 'Linux':
+    sys.path.append('/home/dos/airhealth-database')
 from credentials.database import AP
 from SGIS.models import SggBorder, SidoBorder
 from MonitoringSites.models import AirKoreaMonitoringSites
