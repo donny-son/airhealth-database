@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 # RUN AS MODULE
 from SGIS.api import SGISRequest
-from SGIS.models import SidoCode, SidoBorder, EmdBorder, SggBorder
+from SGIS.models import SidoCode, SidoBorder, EmdBorder, SggBorder, AdmCode
 from credentials.database import AP
 
 PARAMS = {'adm_cd': '11', 'year': 2000}
@@ -151,8 +151,28 @@ def insert_SggBorder(requester, engine, year):
                 del gdf
 
 
+def insert_AdmCode(engine):
+    '''
+    Params:
+        requester: SGISRequest class
+        engine: sqlalchemy.engine.base.Engine
+    '''
+    TBL_NAME = f'ADM_CODES'
+    Session = sessionmaker(bind=engine)
+
+    with Session() as s:
+        sido_codes = s.query(SggBorder.adm_cd, SggBorder.adm_nm, SggBorder.year)
+        for id, sido_code in enumerate(sido_codes, 1):
+            adm_code = AdmCode(id=id, **sido_code)
+            s.add(adm_code)
+        s.commit()
+    print('ADM_CODES completed!')
+    return
+
+
 if __name__=="__main__":
-    insert_SidoCode(REQ, ENGINE)
-    insert_SidoBorder(REQ, ENGINE, year = range(2000, 2021))
-    insert_SggBorder(REQ, ENGINE, year = range(2000, 2021))
-    insert_EmdBorder(REQ, ENGINE, year = range(2000, 2021))
+    # insert_SidoCode(REQ, ENGINE)
+    # insert_SidoBorder(REQ, ENGINE, year = range(2000, 2021))
+    # insert_SggBorder(REQ, ENGINE, year = range(2000, 2021))
+    # insert_EmdBorder(REQ, ENGINE, year = range(2000, 2021))
+    insert_AdmCode(ENGINE)

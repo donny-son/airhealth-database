@@ -7,7 +7,7 @@ from pandas import json_normalize
 from tqdm import tqdm
 
 # RUN AS MODULE
-from SGIS.urls import URLS
+from SGIS.endpoints import URLS
 
 
 class SGISRequest:

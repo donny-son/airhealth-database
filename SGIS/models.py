@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, select
-from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from sqlalchemy import Integer, Text, Column, ForeignKey
 from geoalchemy2 import Geometry
 import pandas as pd
@@ -10,6 +10,8 @@ from credentials.database import AP
 
 Base = declarative_base()
 engine = create_engine(AP)
+Session = sessionmaker(bind=engine)
+
 
 class SidoCode(Base):
     __tablename__ = 'SIDO_CODES'
@@ -42,7 +44,7 @@ class SidoBorder(Base):
     higher_adm_cd = relationship("SidoCode", back_populates="lower_adm_cd")
 
     def __repr__(self):
-        return f"SidoBorder(id={self.id}, adm_cd={self.adm_cd}, adm_name={self.adm_nm}, year={self.year})"
+        return f"SidoBorder(id={self.id}, adm_cd={self.adm_cd}, adm_nm={self.adm_nm}, year={self.year})"
 
 
 class EmdBorder(Base):
@@ -61,7 +63,7 @@ class EmdBorder(Base):
     higher_adm_cd_emd = relationship("SidoCode", back_populates="lower_adm_cd_emd")
 
     def __repr__(self):
-        return f"EmdBorder(id={self.id}, adm_cd={self.adm_cd}, adm_name={self.adm_nm}, year={self.year})"
+        return f"EmdBorder(id={self.id}, adm_cd={self.adm_cd}, adm_nm={self.adm_nm}, year={self.year})"
 
 
 class SggBorder(Base):
@@ -80,10 +82,23 @@ class SggBorder(Base):
     higher_adm_cd_sgg = relationship("SidoCode", back_populates="lower_adm_cd_sgg")
 
     def __repr__(self):
-        return f"SggBorder(id={self.id}, adm_cd={self.adm_cd}, adm_name={self.adm_nm}, year={self.year})"
+        return f"SggBorder(id={self.id}, adm_cd={self.adm_cd}, adm_nm={self.adm_nm}, year={self.year})"
+
+class AdmCode(Base):
+
+    __tablename__ = f'ADM_CODES'
+
+    id = Column(Integer, primary_key=True)
+    adm_cd = Column(Text)
+    adm_nm = Column(Text)
+    year = Column(Integer, nullable=False)
+
+    def __repr__(self):
+        return f"AdmCode(id={self.id}, adm_cd={self.adm_cd}, adm_nm={self.adm_nm}, year={self.year})"
+
 
 
 if __name__=="__main__":
     # Create schema
-    Base.metadata.drop_all(engine)
+    # Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)

@@ -6,10 +6,10 @@
 	"configurations": [
 
 		{
-			"name": "Python: Module",
+			"name": "SGIS: Module",
 			"type": "python",
 			"request": "launch",
-			"module": "tests.test_monitoring_sites"
+			"module": "SGIS.${fileBasenameNoExtension}",
 		},
 		{
 			"name": "Python: Current File",
