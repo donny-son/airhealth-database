@@ -1,6 +1,6 @@
 ### Vehicle Registration
 
-Therefore, a newer approach is required via the [Molit OpenAPI Service](https://stat.molit.go.kr/portal/api/main.do).
+A newer approach is required via the [Molit OpenAPI Service](https://stat.molit.go.kr/portal/api/main.do) since previous data acquisition methods are outdated.
 
 0. Create `molit` openapi account. https://stat.molit.go.kr/portal/auth/memberJoin1.do
 
