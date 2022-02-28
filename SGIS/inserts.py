@@ -170,9 +170,13 @@ def insert_AdmCode(engine):
     return
 
 
-if __name__=="__main__":
+def main():
     # insert_SidoCode(REQ, ENGINE)
     # insert_SidoBorder(REQ, ENGINE, year = range(2000, 2021))
     # insert_SggBorder(REQ, ENGINE, year = range(2000, 2021))
     # insert_EmdBorder(REQ, ENGINE, year = range(2000, 2021))
     insert_AdmCode(ENGINE)
+
+
+if __name__=="__main__":
+    main()
